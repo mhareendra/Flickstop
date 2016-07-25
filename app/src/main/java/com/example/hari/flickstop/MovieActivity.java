@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.hari.flickstop.adapters.MovieArrayAdapter;
@@ -19,6 +17,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnItemClick;
+import butterknife.OnItemLongClick;
 import cz.msebera.android.httpclient.Header;
 
 public class MovieActivity extends AppCompatActivity {
@@ -27,7 +29,8 @@ public class MovieActivity extends AppCompatActivity {
     ArrayList<Movie> movies;
 
     MovieArrayAdapter movieAdapter;
-    ListView lvMovies;
+
+    @BindView(R.id.lvMovies) ListView lvMovies;
 
     private SwipeRefreshLayout swipeContainer;
 
@@ -39,6 +42,8 @@ public class MovieActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
+
+        ButterKnife.bind(this);
 
         client = new AsyncHttpClient();
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
@@ -54,14 +59,11 @@ public class MovieActivity extends AppCompatActivity {
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
-        lvMovies = (ListView)findViewById(R.id.lvMovies);
         movies = new ArrayList<>();
         movieAdapter = new MovieArrayAdapter(this, movies);
         lvMovies.setAdapter(movieAdapter);
 
         refreshAsyncClient();
-
-        setListItemClickListener();
 
         ActionBar bar = getSupportActionBar();
         if (bar!=null) {
@@ -69,22 +71,11 @@ public class MovieActivity extends AppCompatActivity {
             bar.setIcon(R.mipmap.ic_launcher);
             bar.setDisplayShowTitleEnabled(false);
         }
-
-
-    }
-
-    private void setListItemClickListener()
-    {
-        lvMovies.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                handleItemClick(position);
-            }
-        });
     }
 
 
-    private void handleItemClick(int position)
+    @OnItemClick(R.id.lvMovies)
+    protected void ListItemClick(int position)
     {
         if(movies.get(position).popularity == Movie.MoviePopularity.POPULAR)
         {
@@ -98,6 +89,13 @@ public class MovieActivity extends AppCompatActivity {
         {
             startDetailsActivity(position);
         }
+    }
+
+    @OnItemLongClick(R.id.lvMovies)
+    protected boolean ListItemLongClick(int position)
+    {
+        startDetailsActivity(position);
+        return true;
     }
 
     private void refreshAsyncClient()

@@ -16,22 +16,24 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
 public class VideoPlayerActivity extends YouTubeBaseActivity {
 
     private long movieID;
-    private YouTubePlayerView youTubePlayerView;
+
+    @BindView(R.id.player) YouTubePlayerView youTubePlayerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_player);
 
-        movieID = this.getIntent().getLongExtra("movieID", 0);
+        ButterKnife.bind(this);
 
-        youTubePlayerView =
-                (YouTubePlayerView) findViewById(R.id.player);
+        movieID = this.getIntent().getLongExtra("movieID", 0);
 
         youTubePlayerView.initialize("YOUR API KEY",
                 new YouTubePlayer.OnInitializedListener() {
@@ -46,7 +48,6 @@ public class VideoPlayerActivity extends YouTubeBaseActivity {
                         Toast.makeText(VideoPlayerActivity.this, "The video could not be played!", Toast.LENGTH_SHORT).show();
                     }
                 });
-
 
     }
 

@@ -15,6 +15,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 /**
@@ -28,14 +30,22 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         super(context, 0, movies);
     }
 
-    private static class ViewHolder {
-        ImageView movieImage;
-        TextView title;
-        TextView overview;
+    static class ViewHolder {
+        @BindView(R.id.ivMovie) ImageView movieImage;
+        @BindView(R.id.tvMovieTitle) TextView title;
+        @BindView(R.id.tvMovieOverview) TextView overview;
+
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 
-    private static class ViewHolderPopular {
-        ImageView movieImage;
+    static class ViewHolderPopular {
+        @BindView(R.id.ivMovie) ImageView movieImage;
+
+        public ViewHolderPopular(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 
 
@@ -135,11 +145,8 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         ViewHolder viewHolder;
         if(convertView == null)
         {
-            viewHolder = new ViewHolder();
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_movie, null);
-            viewHolder.movieImage = (ImageView)convertView.findViewById(R.id.ivMovie);
-            viewHolder.title = (TextView)convertView.findViewById(R.id.tvMovieTitle);
-            viewHolder.overview = (TextView)convertView.findViewById(R.id.tvMovieOverview);
+            viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         }
         else
@@ -175,9 +182,7 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         if(convertView == null)
         {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_movie_popular, null);
-            viewHolderPopular = new ViewHolderPopular();
-
-            viewHolderPopular.movieImage = (ImageView)convertView.findViewById(R.id.ivMovie);
+            viewHolderPopular = new ViewHolderPopular(convertView);
             convertView.setTag(viewHolderPopular);
         }
         else

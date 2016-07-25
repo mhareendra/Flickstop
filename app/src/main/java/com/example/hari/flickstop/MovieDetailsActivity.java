@@ -22,20 +22,21 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 public class MovieDetailsActivity extends YouTubeBaseActivity {
 
-    ImageView ivPoster;
-    TextView tvTitle;
-    TextView tvOverview;
-    TextView tvReleaseDate;
-    TextView tvRating;
+    @BindView(R.id.ivPoster) ImageView ivPoster;
+    @BindView(R.id.tvTitle) TextView tvTitle;
+    @BindView(R.id.tvOverview) TextView tvOverview;
+    @BindView(R.id.tvReleaseDate) TextView tvReleaseDate;
+    @BindView(R.id.tvRating) TextView tvRating;
+    @BindView(R.id.tvLanguage) TextView tvLanguage;
 
-    TextView tvLanguage;
-
-    YouTubePlayerView youTubePlayerView;
+    @BindView(R.id.player) YouTubePlayerView youTubePlayerView;
 
     private long movieID;
     private ArrayList<MovieVideo> movieVideos;
@@ -45,8 +46,8 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
 
+        ButterKnife.bind(this);
         Intent intent = this.getIntent();
-        findControls();
 
         if(intent!=null && intent.hasExtra("Movie")) {
 
@@ -91,19 +92,6 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
 //            bar.setIcon(R.mipmap.ic_launcher);
 //            bar.setDisplayShowTitleEnabled(false);
 //        }
-
-    }
-
-    private void findControls()
-    {
-        ivPoster = (ImageView)findViewById(R.id.ivPoster);
-        tvTitle = (TextView)findViewById(R.id.tvTitle);
-        tvOverview = (TextView)findViewById(R.id.tvOverview);
-        tvReleaseDate = (TextView)findViewById(R.id.tvReleaseDate);
-        tvRating = (TextView)findViewById(R.id.tvRating);
-        tvLanguage = (TextView)findViewById(R.id.tvLanguage);
-        youTubePlayerView =
-                (YouTubePlayerView) findViewById(R.id.player);
 
     }
 
