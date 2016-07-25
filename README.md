@@ -38,5 +38,7 @@ Added Navigation drawer to display additional categories of movies.
 Added Language field to the details screen
 Displayed Vote average as text instead of rating bar as it is double valued.
 
+Here's a walkthrough of implemented user stories:
 
+<img src='https://github.com/mhareendra/Flickstop/blob/master/Flickstop_2.gif' width='' />
 
