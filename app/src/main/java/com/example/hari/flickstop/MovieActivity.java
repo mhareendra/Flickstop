@@ -223,6 +223,7 @@ public class MovieActivity extends AppCompatActivity {
                 resultsArray = response.optJSONArray(("results"));
                 movies.addAll(Movie.fromJsonArray(resultsArray));
                 movieAdapter.notifyDataSetChanged();
+                lvMovies.smoothScrollToPosition(0);
                 //Log.d("Movies", movies.toString());
             }
             //Log.d("results", resultsArray.toString());
