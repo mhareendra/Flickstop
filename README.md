@@ -42,3 +42,6 @@ Here's a walkthrough of implemented user stories:
 
 <img src='https://github.com/mhareendra/Flickstop/blob/master/Flickstop_2.gif' width='' />
 
+<img src='https://github.com/mhareendra/Flickstop/blob/master/Flickstop_3.gif' width='' />
+
+
