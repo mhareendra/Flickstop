@@ -107,7 +107,7 @@
         android:layout_below="@+id/textView"
         android:layout_alignLeft="@+id/tvOverview"
         android:layout_alignStart="@+id/tvOverview"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="14dp"
         android:textColor="#e8e8e8" />
 
     <TextView
@@ -122,22 +122,6 @@
         android:layout_marginTop="7dp"
         android:textColor="#e8e8e8" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" + Watchlist "
-        android:id="@+id/btnAddToWatchlist"
-        android:background="#006137"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textStyle="italic"
-        android:typeface="normal"
-        android:alpha="0.8"
-        android:layout_alignRight="@+id/tvTitle"
-        android:layout_alignEnd="@+id/tvTitle"
-        android:layout_above="@+id/tvRating"
-        android:layout_alignTop="@+id/tvReleaseDate" />
 
     <TextView
         android:layout_width="wrap_content"
