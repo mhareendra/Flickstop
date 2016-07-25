@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_height="fill_parent"
+     android:layout_width="fill_parent"
+    android:background="#000000">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.hari.flickstop.MovieDetailsActivity">
+
+    <com.google.android.youtube.player.YouTubePlayerView
+    android:id="@+id/player"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivPoster"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        tools:src="@mipmap/ic_launcher"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="14dp"
+        android:adjustViewBounds="true"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/tvOverview"
+        tools:text="&quot;Finding Dory&quot; reunites Dory with friends Nemo and Marlin on a search for answers about her past. What can she remember? Who are her parents? And where did she learn to speak Whale?"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        android:textColor="#e8e8e8"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignRight="@+id/ivPoster"
+        android:layout_alignEnd="@+id/ivPoster"
+        android:layout_marginTop="7dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/tvTitle"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/ivPoster"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/ivPoster"
+        android:layout_alignEnd="@+id/ivPoster"
+        android:layout_marginLeft="14dp"
+        tools:text="Finding Dory"
+        android:textStyle="bold"
+        android:layout_marginRight="12dp"
+        android:textColor="#e8e8e8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/tvReleaseDate"
+        android:layout_alignTop="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_marginLeft="6dp"
+        android:textColor="#e8e8e8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Release Date:"
+        android:id="@+id/textView"
+        android:layout_below="@+id/tvTitle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="14dp"
+        android:textColor="#e8e8e8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Rating:"
+        android:id="@+id/tvRatingLabel"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/tvOverview"
+        android:layout_alignStart="@+id/tvOverview"
+        android:layout_marginTop="7dp"
+        android:textColor="#e8e8e8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/tvRating"
+        android:layout_below="@+id/tvReleaseDate"
+        android:layout_alignLeft="@+id/tvReleaseDate"
+        android:layout_alignStart="@+id/tvReleaseDate"
+        android:layout_marginTop="7dp"
+        android:textColor="#e8e8e8" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" + Watchlist "
+        android:id="@+id/btnAddToWatchlist"
+        android:background="#006137"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textStyle="italic"
+        android:typeface="normal"
+        android:alpha="0.8"
+        android:layout_alignRight="@+id/tvTitle"
+        android:layout_alignEnd="@+id/tvTitle"
+        android:layout_above="@+id/tvRating"
+        android:layout_alignTop="@+id/tvReleaseDate" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Language:"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/tvRatingLabel"
+        android:layout_alignLeft="@+id/tvOverview"
+        android:layout_alignStart="@+id/tvOverview"
+        android:layout_marginTop="7dp"
+        android:textColor="#e8e8e8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/tvLanguage"
+        android:textColor="#e8e8e8"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignLeft="@+id/tvRating"
+        android:layout_alignStart="@+id/tvRating" />
+
+
+</RelativeLayout>
+</ScrollView>
+</RelativeLayout>
